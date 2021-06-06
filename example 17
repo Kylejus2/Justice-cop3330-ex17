@@ -1,0 +1,27 @@
+import java.util.Scanner;
+//BAC = (A × 5.14 / W × r) − .015 × H
+public class Main
+{
+  public static void main(String[] args)
+  {
+    Scanner input = new Scanner(System.in);
+    System.out.println("Enter your total alcohol consumed in ounces: ");
+    double alcohol = input.nextDouble();
+    System.out.println("Enter your weight in pounds: ");
+    double weight= input.nextDouble();
+    System.out.println("Enter your alcohol distribution ratio, 0.73 for men, 0.66 for women: ");
+    double ratio = input.nextDouble();
+    System.out.println("Enter your number of hours since your last drink: ");
+    double hours = input.nextDouble();
+    double BAC= ((alcohol*5.14)/(weight*ratio)-.015*hours);
+    System.out.println("Your BAC is: " + BAC);
+    if (BAC>=.08)
+      System.out.println("It is not safe for you to drive");
+    else
+      if (BAC<.08)
+        System.out.println("It is safe for you to drive");
+    else
+      System.out.println("This is not a valid answer");
+    input.close();
+  }
+}
